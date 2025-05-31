@@ -1,3 +1,46 @@
 <resources>
     <string name="app_name">Lucky Connect</string>
+    
+    <!-- Главный экран -->
+    <string name="app_title">LUCKY CONNECT</string>
+    <string name="app_subtitle">Защищённое подключение</string>
+    <string name="connect_button">ПОДКЛЮЧИТЬСЯ</string>
+    <string name="connected_button">ЗАЩИЩЕНО</string>
+    <string name="connecting_button">ПОДКЛЮЧЕНИЕ...</string>
+    <string name="disconnecting_button">ОТКЛЮЧЕНИЕ...</string>
+    <string name="error_button">ОШИБКА</string>
+    
+    <!-- Навигация -->
+    <string name="servers">Серверы</string>
+    <string name="settings">Настройки</string>
+    <string name="back">Назад</string>
+    
+    <!-- Серверы -->
+    <string name="server_selection">Выбор сервера</string>
+    <string name="search_servers">Поиск серверов</string>
+    <string name="only_free_servers">Только бесплатные серверы</string>
+    <string name="optimal_server">Оптимальный</string>
+    <string name="premium_server">Премиум</string>
+    <string name="selected_server">Выбран</string>
+    
+    <!-- Настройки -->
+    <string name="connection_settings">ПОДКЛЮЧЕНИЕ</string>
+    <string name="security_settings">БЕЗОПАСНОСТЬ</string>
+    <string name="about_app">О ПРИЛОЖЕНИИ</string>
+    
+    <string name="auto_connect">Автоподключение</string>
+    <string name="auto_connect_desc">Автоматически подключаться при запуске</string>
+    <string name="kill_switch">Kill Switch</string>
+    <string name="kill_switch_desc">Блокировать интернет при отключении VPN</string>
+    <string name="dns_protection">DNS защита</string>
+    <string name="dns_protection_desc">Защита от DNS утечек и вредоносных сайтов</string>
+    <string name="ad_blocker">Блокировщик рекламы</string>
+    <string name="ad_blocker_desc">Блокировка рекламы и трекеров</string>
+    
+    <!-- Статистика -->
+    <string name="download_speed">Загрузка</string>
+    <string name="upload_speed">Отдача</string>
+    <string name="connection_time">Время</string>
+    <string name="ping">Пинг</string>
+    <string name="connection_stats">Статистика подключения</string>
 </resources>
