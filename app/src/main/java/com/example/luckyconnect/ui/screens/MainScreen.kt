@@ -48,6 +48,7 @@ fun MainScreen(
                     )
                 )
             )
+            .windowInsetsPadding(WindowInsets.systemBars)
     ) {
         LazyColumn(
             modifier = Modifier
@@ -56,7 +57,7 @@ fun MainScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            item { Spacer(modifier = Modifier.height(40.dp)) }
+            item { Spacer(modifier = Modifier.height(16.dp)) }
             
             // Заголовок приложения
             item {
@@ -225,7 +226,7 @@ fun MainScreen(
                 }
             }
             
-            item { Spacer(modifier = Modifier.height(40.dp)) }
+            item { Spacer(modifier = Modifier.height(16.dp)) }
         }
     }
 } 

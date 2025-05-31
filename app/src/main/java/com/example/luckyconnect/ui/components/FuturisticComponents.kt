@@ -3,11 +3,15 @@ package com.example.luckyconnect.ui.components
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -92,7 +96,10 @@ fun FuturisticConnectionButton(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .size(200.dp)
-            .clickable { onClick() }
+            .clickable(
+                indication = null,
+                interactionSource = remember { MutableInteractionSource() }
+            ) { onClick() }
     ) {
         // Внешнее свечение
         Box(
@@ -134,17 +141,12 @@ fun FuturisticConnectionButton(
         // Основная кнопка
         Card(
             modifier = Modifier
-                .size(180.dp)
-                .shadow(
-                    elevation = 20.dp,
-                    shape = CircleShape,
-                    ambientColor = glowColor,
-                    spotColor = glowColor
-                ),
+                .size(180.dp),
             shape = CircleShape,
             colors = CardDefaults.cardColors(
-                containerColor = FuturisticColors.CardSurface
-            )
+                containerColor = Color.Transparent
+            ),
+            elevation = CardDefaults.cardElevation(0.dp)
         ) {
             Box(
                 contentAlignment = Alignment.Center,
@@ -154,10 +156,12 @@ fun FuturisticConnectionButton(
                         brush = Brush.radialGradient(
                             colors = listOf(
                                 buttonColor.copy(alpha = 0.2f),
-                                FuturisticColors.CardSurface
+                                buttonColor.copy(alpha = 0.1f),
+                                Color.Transparent
                             ),
                             radius = 200f
-                        )
+                        ),
+                        shape = CircleShape
                     )
                     .border(
                         width = 2.dp,
@@ -207,21 +211,19 @@ fun NeonCard(
     content: @Composable BoxScope.() -> Unit
 ) {
     val cardModifier = if (onClick != null) {
-        modifier.clickable { onClick() }
+        modifier.clickable(
+            indication = null,
+            interactionSource = remember { MutableInteractionSource() }
+        ) { onClick() }
     } else modifier
     
     Card(
-        modifier = cardModifier
-            .shadow(
-                elevation = 12.dp,
-                shape = RoundedCornerShape(16.dp),
-                ambientColor = accentColor.copy(alpha = 0.3f),
-                spotColor = accentColor.copy(alpha = 0.3f)
-            ),
+        modifier = cardModifier,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = FuturisticColors.GlassMorphism
-        )
+            containerColor = Color.Transparent
+        ),
+        elevation = CardDefaults.cardElevation(0.dp)
     ) {
         Box(
             modifier = Modifier
@@ -229,10 +231,12 @@ fun NeonCard(
                 .background(
                     brush = Brush.linearGradient(
                         colors = listOf(
-                            FuturisticColors.CardSurface.copy(alpha = 0.8f),
-                            FuturisticColors.ElevatedSurface.copy(alpha = 0.6f)
+                            accentColor.copy(alpha = 0.1f),
+                            accentColor.copy(alpha = 0.05f),
+                            Color.Transparent
                         )
-                    )
+                    ),
+                    shape = RoundedCornerShape(16.dp)
                 )
                 .border(
                     width = 1.dp,
@@ -289,12 +293,6 @@ fun NeonProgressBar(
                         )
                     ),
                     shape = RoundedCornerShape(4.dp)
-                )
-                .shadow(
-                    elevation = 4.dp,
-                    shape = RoundedCornerShape(4.dp),
-                    ambientColor = color,
-                    spotColor = color
                 )
         )
     }
@@ -421,4 +419,13 @@ data class Quadruple<A, B, C, D>(
     val second: B,
     val third: C,
     val fourth: D
-) 
+)
+
+// Кастомная тема для отключения ripple эффекта
+private object NoRippleTheme : RippleTheme {
+    @Composable
+    override fun defaultColor() = Color.Unspecified
+
+    @Composable
+    override fun rippleAlpha(): RippleAlpha = RippleAlpha(0.0f, 0.0f, 0.0f, 0.0f)
+} 

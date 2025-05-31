@@ -60,13 +60,14 @@ fun ServersScreen(
                     )
                 )
             )
+            .windowInsetsPadding(WindowInsets.systemBars)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(horizontal = 24.dp)
         ) {
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             
             // Заголовок и кнопка назад
             Row(

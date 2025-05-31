@@ -1,6 +1,7 @@
 package com.example.luckyconnect.ui.screens
 
 import androidx.compose.foundation.*
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -41,6 +42,7 @@ fun SettingsScreen(
                     )
                 )
             )
+            .windowInsetsPadding(WindowInsets.systemBars)
     ) {
         LazyColumn(
             modifier = Modifier
@@ -48,7 +50,7 @@ fun SettingsScreen(
                 .padding(horizontal = 24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            item { Spacer(modifier = Modifier.height(40.dp)) }
+            item { Spacer(modifier = Modifier.height(16.dp)) }
             
             // Заголовок и кнопка назад
             item {
@@ -260,7 +262,10 @@ fun SettingsScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(FuturisticColors.VoidBlack.copy(alpha = 0.7f))
-                    .clickable { showProtocolMenu = false },
+                    .clickable(
+                        indication = null,
+                        interactionSource = remember { MutableInteractionSource() }
+                    ) { showProtocolMenu = false },
                 contentAlignment = Alignment.Center
             ) {
                 NeonCard(
@@ -312,6 +317,7 @@ private fun SettingsToggleCard(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Row(
+                modifier = Modifier.weight(1f),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
@@ -322,20 +328,26 @@ private fun SettingsToggleCard(
                     modifier = Modifier.size(24.dp)
                 )
                 
-                Column {
+                Column(
+                    modifier = Modifier.weight(1f)
+                ) {
                     Text(
                         text = title,
                         color = FuturisticColors.TextPrimary,
                         fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium
+                        fontWeight = FontWeight.Medium,
+                        maxLines = 1
                     )
                     Text(
                         text = description,
                         color = FuturisticColors.TextSecondary,
-                        fontSize = 14.sp
+                        fontSize = 14.sp,
+                        maxLines = 2
                     )
                 }
             }
+            
+            Spacer(modifier = Modifier.width(8.dp))
             
             Switch(
                 checked = checked,

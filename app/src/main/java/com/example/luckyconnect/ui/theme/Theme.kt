@@ -29,8 +29,8 @@ object FuturisticColors {
     
     // Поверхности
     val GlassMorphism = Color(0x1AFFFFFF)
-    val CardSurface = Color(0xFF1E1E2E)
-    val ElevatedSurface = Color(0xFF2A2A3A)
+    val CardSurface = Color(0x40404060)
+    val ElevatedSurface = Color(0x60606080)
     
     // Текстовые цвета
     val TextPrimary = Color(0xFFFFFFFF)
