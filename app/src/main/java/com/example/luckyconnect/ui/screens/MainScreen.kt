@@ -174,34 +174,10 @@ fun MainScreen(
             item {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    horizontalArrangement = Arrangement.Center
                 ) {
                     NeonCard(
-                        modifier = Modifier.weight(1f),
-                        accentColor = FuturisticColors.ElectricPurple,
-                        onClick = onNavigateToServers
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Language,
-                                contentDescription = "Серверы",
-                                tint = FuturisticColors.ElectricPurple,
-                                modifier = Modifier.size(32.dp)
-                            )
-                            Text(
-                                text = "Серверы",
-                                color = FuturisticColors.TextPrimary,
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Medium
-                            )
-                        }
-                    }
-                    
-                    NeonCard(
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.width(200.dp),
                         accentColor = FuturisticColors.QuantumGold,
                         onClick = onNavigateToSettings
                     ) {
@@ -218,7 +194,7 @@ fun MainScreen(
                             Text(
                                 text = "Настройки",
                                 color = FuturisticColors.TextPrimary,
-                                fontSize = 14.sp,
+                                fontSize = 16.sp,
                                 fontWeight = FontWeight.Medium
                             )
                         }

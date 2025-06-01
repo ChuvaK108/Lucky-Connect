@@ -38,6 +38,9 @@ fun VpnNavigation(
             ServersScreen(
                 onBackClick = {
                     navController.popBackStack()
+                },
+                onServerSelected = {
+                    navController.popBackStack()
                 }
             )
         }
